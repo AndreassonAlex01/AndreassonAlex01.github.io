@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Alexander Andreasson, a fullstack software developer building web apps on AI APIs, with a background in real-time 3D and XR. Gothenburg, Sweden.">
+<meta name="description" content="Alexander Andreasson, a software developer building web apps on AI APIs, with a background in real-time 3D and XR. Gothenburg, Sweden.">
 <meta name="author" content="Alexander Andreasson">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Alexander Andreasson: Software Developer, AI & XR">
@@ -16,17 +16,17 @@
 <title>Alexander Andreasson</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
   :root{
     --bg:#EBEDE9; --bg-2:#E2E5E0; --surface:#FBFBF9; --surface-2:#F2F3EF;
     --ink:#15191A; --ink-2:#3B4245; --muted:#6B7276;
     --line:rgba(20,25,26,.13); --line-2:rgba(20,25,26,.07);
-    --accent:#DC4A22; --accent-2:#256C77; --accent-ink:#fff;
-    --accent-soft:rgba(220,74,34,.11);
+    --accent:#0E9A52; --accent-2:#2C7D6F; --accent-ink:#fff;
+    --accent-soft:rgba(14,154,82,.12);
     --shadow:0 1px 2px rgba(16,20,22,.05), 0 12px 34px -18px rgba(16,20,22,.28);
     --maxw:1120px;
-    --f-display:"Bricolage Grotesque",system-ui,sans-serif;
+    --f-display:"Fraunces",Georgia,"Times New Roman",serif;
     --f-body:"Instrument Sans",system-ui,sans-serif;
     --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   }
@@ -35,8 +35,8 @@
       --bg:#0B0E11; --bg-2:#0F1319; --surface:#141A21; --surface-2:#10151B;
       --ink:#E9EDEA; --ink-2:#B7BFC3; --muted:#7C858A;
       --line:rgba(255,255,255,.12); --line-2:rgba(255,255,255,.055);
-      --accent:#FF6A3D; --accent-2:#4FB4C2; --accent-ink:#0B0E11;
-      --accent-soft:rgba(255,106,61,.14);
+      --accent:#35D684; --accent-2:#54C7AE; --accent-ink:#0B0E11;
+      --accent-soft:rgba(53,214,132,.15);
       --shadow:0 1px 2px rgba(0,0,0,.4), 0 18px 44px -20px rgba(0,0,0,.7);
     }
   }
@@ -44,22 +44,33 @@
     --bg:#0B0E11; --bg-2:#0F1319; --surface:#141A21; --surface-2:#10151B;
     --ink:#E9EDEA; --ink-2:#B7BFC3; --muted:#7C858A;
     --line:rgba(255,255,255,.12); --line-2:rgba(255,255,255,.055);
-    --accent:#FF6A3D; --accent-2:#4FB4C2; --accent-ink:#0B0E11;
-    --accent-soft:rgba(255,106,61,.14);
+    --accent:#35D684; --accent-2:#54C7AE; --accent-ink:#0B0E11;
+    --accent-soft:rgba(53,214,132,.15);
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 18px 44px -20px rgba(0,0,0,.7);
   }
 
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    margin:0; background:var(--bg); color:var(--ink);
+    margin:0; color:var(--ink);
+    background:
+      linear-gradient(176deg,
+        color-mix(in srgb, var(--accent) 7%, var(--bg)) 0%,
+        var(--bg) 42%,
+        var(--bg-2) 100%) fixed;
     font-family:var(--f-body); font-size:16px; line-height:1.6;
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    background-image:
-      linear-gradient(var(--line-2) 1px,transparent 1px),
-      linear-gradient(90deg,var(--line-2) 1px,transparent 1px);
-    background-size:46px 46px; background-position:center top;
   }
+  /* fine paper grain across the page: tactile texture instead of a flat mechanical grid */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-2; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    background-size:150px 150px; opacity:.2; mix-blend-mode:multiply;
+  }
+  @media(prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) body::before{mix-blend-mode:soft-light;opacity:.32}
+  }
+  :root[data-theme="dark"] body::before{mix-blend-mode:soft-light;opacity:.32}
   a{color:inherit}
   ::selection{background:var(--accent);color:var(--accent-ink)}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
@@ -91,6 +102,17 @@
 
   /* ---- hero ---- */
   header{padding:74px 0 30px;position:relative}
+  /* hero backdrop: a soft, smooth warm/teal gradient wash, only here, fading out */
+  header::before{
+    content:""; position:absolute; top:-24px; left:50%; transform:translateX(-50%);
+    width:100vw; height:680px; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(75% 90% at 86% -16%, color-mix(in srgb,var(--accent) 17%,transparent), transparent 62%),
+      radial-gradient(66% 78% at 0% -4%, color-mix(in srgb,var(--accent-2) 15%,transparent), transparent 60%);
+    -webkit-mask-image:radial-gradient(140% 100% at 50% -4%, #000 36%, transparent 82%);
+            mask-image:radial-gradient(140% 100% at 50% -4%, #000 36%, transparent 82%);
+  }
+  @media(max-width:640px){header::before{height:580px}}
   .h-thesis{max-width:660px}
   h1{font-family:var(--f-display);font-weight:700;line-height:.98;
     font-size:clamp(44px,8.5vw,88px);margin:18px 0 0;letter-spacing:-.02em;
@@ -265,10 +287,10 @@
   <div class="nav-in">
     <div class="brand"><span class="dot"></span>A. Andreasson</div>
     <div class="nav-links">
-      <a href="#work" class="hideable">work</a>
       <a href="#realtime" class="hideable">3d</a>
       <a href="#skills" class="hideable">skills</a>
       <a href="#experience" class="hideable">experience</a>
+      <a href="#work" class="hideable">hobby</a>
       <a href="#contact">contact</a>
       <button class="toggle" id="themeToggle" aria-label="Toggle colour theme" title="Toggle theme">◑</button>
     </div>
@@ -277,14 +299,13 @@
 
 <header>
   <div class="wrap h-thesis">
-    <div class="eyebrow rise d1">// Fullstack Software Developer &nbsp;<span class="dim">· Gothenburg, Sweden</span></div>
+    <div class="eyebrow rise d1">Software Developer &nbsp;<span class="dim">· Gothenburg, Sweden</span></div>
     <h1 class="rise d2">Alexander<br><span class="thin">Andreasson</span></h1>
     <div class="role rise d2">AI &amp; API Web Apps · Real-Time 3D · XR</div>
     <p class="lede rise d3">I build full web applications on top of AI APIs, from <b>multimodal image analysis</b> and backend design to the interface the user actually touches. My background is in real-time 3D and XR, and I like <b>owning a product end to end</b>: model, code, API and UI.</p>
     <div class="cta rise d4">
-      <a class="btn primary" href="#work">View selected work</a>
-      <a class="btn ghost" href="https://youtu.be/BqrE_b5L_CM" target="_blank" rel="noopener">▶ Portfolio reel</a>
-      <a class="btn ghost" href="mailto:andreassonalex01@gmail.com">Get in touch</a>
+      <a class="btn primary" href="https://youtu.be/BqrE_b5L_CM" target="_blank" rel="noopener">▶ Portfolio reel</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
     </div>
   </div>
   <div class="wrap">
@@ -298,83 +319,16 @@
 </header>
 
 <main>
-  <!-- SELECTED WEB WORK -->
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <div class="eyebrow">// Selected work</div>
-          <h2>AI-powered web applications</h2>
-        </div>
-        <p>Full-stack products built on multimodal AI models, with authentication, databases and documented APIs.</p>
-        <span class="idx">01</span>
-      </div>
-
-      <div class="feat">
-        <article class="card">
-          <div class="mock">
-            <div class="bar"><i></i><i></i><i></i></div>
-            <div class="glass">
-              <div class="rings">
-                <div class="ring" style="--p:74;--c:var(--accent)"><span>74%</span></div>
-                <div class="mlines">
-                  <div class="mline"><b>Protein</b><div class="track"><div class="fill" style="width:82%"></div></div>82g</div>
-                  <div class="mline"><b>Carbs</b><div class="track"><div class="fill" style="width:61%"></div></div>140g</div>
-                  <div class="mline"><b>Fat</b><div class="track"><div class="fill" style="width:48%"></div></div>52g</div>
-                  <div class="mline"><b>Kcal</b><div class="track"><div class="fill" style="width:74%"></div></div>1 880</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="body">
-            <div class="tag">Full-Stack Web App</div>
-            <h3>AI Calorie &amp; Macro Tracker</h3>
-            <p>Users photograph a meal and a multimodal AI model returns calories and a full macro breakdown for every item on the plate. Results are editable, portions recalculate live, and daily totals track against goals derived from the user's own body data, with historical graphs and a weekly AI summary.</p>
-            <p style="color:var(--ink);font-weight:600;font-size:13.5px;margin-top:14px">Built with authentication, a database, dark mode and a documented public partner API (OpenAPI / Swagger, API-key auth) for third-party integrations.</p>
-            <div class="chips">
-              <span class="chip">Multimodal vision</span><span class="chip">Backend + DB</span>
-              <span class="chip">Auth</span><span class="chip">OpenAPI / Swagger</span><span class="chip">UI/UX</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="mock">
-            <div class="bar"><i></i><i></i><i></i></div>
-            <div class="glass">
-              <div class="pipe">
-                <div class="prow"><span class="ai">AI</span>Senior Frontend Engineer, Volvo<span class="st match">92% match</span></div>
-                <div class="prow"><span class="ai">AI</span>Fullstack Developer, Ericsson<span class="st sent">application sent</span></div>
-                <div class="prow"><span class="ai">AI</span>Software Engineer, Spotify<span class="st match">88% match</span></div>
-                <div class="prow"><span class="ai">AI</span>XR Developer, Zenseact<span class="st sent">application sent</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="body">
-            <div class="tag">AI Automation Tool</div>
-            <h3>Automatic Job Application Web App</h3>
-            <p>A web tool that parses job adverts, matches them against my CV, generates tailored applications with an AI model, and tracks what has been sent where. Built to remove the repetitive parts of my own job hunt.</p>
-            <p style="color:var(--ink);font-weight:600;font-size:13.5px;margin-top:14px">Focus: AI-assisted text generation, web front end, data handling and workflow automation.</p>
-            <div class="chips">
-              <span class="chip">AI text generation</span><span class="chip">Advert parsing</span>
-              <span class="chip">Data handling</span><span class="chip">Automation</span><span class="chip">Web front end</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- REAL-TIME / 3D -->
   <section id="realtime">
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <div class="eyebrow">// Real-time &amp; 3D</div>
+          <div class="eyebrow">Real-time &amp; 3D</div>
           <h2>Engines, XR &amp; procedural work</h2>
         </div>
         <p>High-performance, low-latency scenes built and optimised for live playback in Unity, Unreal and Blender.</p>
-        <span class="idx">02</span>
+        <span class="idx">01</span>
       </div>
 
       <div class="grid3" id="gallery">
@@ -435,11 +389,11 @@
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <div class="eyebrow">// Toolkit</div>
+          <div class="eyebrow">Toolkit</div>
           <h2>Skills</h2>
         </div>
         <p>What I reach for to take a product from idea to something people can use.</p>
-        <span class="idx">03</span>
+        <span class="idx">02</span>
       </div>
       <div class="skills">
         <div class="sgroup">
@@ -481,10 +435,10 @@
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <div class="eyebrow">// Track record</div>
+          <div class="eyebrow">Track record</div>
           <h2>Experience</h2>
         </div>
-        <span class="idx">04</span>
+        <span class="idx">03</span>
       </div>
 
       <div class="titem">
@@ -515,7 +469,7 @@
       </div>
 
       <div style="margin-top:44px">
-        <div class="eyebrow" style="margin-bottom:16px">// Education</div>
+        <div class="eyebrow" style="margin-bottom:16px">Education</div>
         <div class="edu">
           <div class="educard">
             <div class="yr">2022-2024</div>
@@ -534,12 +488,79 @@
     </div>
   </section>
 
+  <!-- HOBBY PROJECTS -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">Hobby projects</div>
+          <h2>Hobby projects</h2>
+        </div>
+        <p>Full-stack products built on multimodal AI models, with authentication, databases and documented APIs.</p>
+        <span class="idx">04</span>
+      </div>
+
+      <div class="feat">
+        <article class="card">
+          <div class="mock">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="glass">
+              <div class="rings">
+                <div class="ring" style="--p:74;--c:var(--accent)"><span>74%</span></div>
+                <div class="mlines">
+                  <div class="mline"><b>Protein</b><div class="track"><div class="fill" style="width:82%"></div></div>82g</div>
+                  <div class="mline"><b>Carbs</b><div class="track"><div class="fill" style="width:61%"></div></div>140g</div>
+                  <div class="mline"><b>Fat</b><div class="track"><div class="fill" style="width:48%"></div></div>52g</div>
+                  <div class="mline"><b>Kcal</b><div class="track"><div class="fill" style="width:74%"></div></div>1 880</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="tag">Full-Stack Web App</div>
+            <h3>AI Calorie &amp; Macro Tracker</h3>
+            <p>Users photograph a meal and a multimodal AI model returns calories and a full macro breakdown for every item on the plate. Results are editable, portions recalculate live, and daily totals track against goals derived from the user's own body data, with historical graphs and a weekly AI summary.</p>
+            <p style="color:var(--ink);font-weight:600;font-size:13.5px;margin-top:14px">Built with authentication, a database, dark mode and a documented public partner API (OpenAPI / Swagger, API-key auth) for third-party integrations.</p>
+            <div class="chips">
+              <span class="chip">Multimodal vision</span><span class="chip">Backend + DB</span>
+              <span class="chip">Auth</span><span class="chip">OpenAPI / Swagger</span><span class="chip">UI/UX</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="mock">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="glass">
+              <div class="pipe">
+                <div class="prow"><span class="ai">AI</span>Senior Frontend Engineer, Volvo<span class="st match">92% match</span></div>
+                <div class="prow"><span class="ai">AI</span>Fullstack Developer, Ericsson<span class="st sent">application sent</span></div>
+                <div class="prow"><span class="ai">AI</span>Software Engineer, Spotify<span class="st match">88% match</span></div>
+                <div class="prow"><span class="ai">AI</span>XR Developer, Zenseact<span class="st sent">application sent</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="tag">AI Automation Tool</div>
+            <h3>Automatic Job Application Web App</h3>
+            <p>A web tool that parses job adverts, matches them against my CV, generates tailored applications with an AI model, and tracks what has been sent where. Built to remove the repetitive parts of my own job hunt.</p>
+            <p style="color:var(--ink);font-weight:600;font-size:13.5px;margin-top:14px">Focus: AI-assisted text generation, web front end, data handling and workflow automation.</p>
+            <div class="chips">
+              <span class="chip">AI text generation</span><span class="chip">Advert parsing</span>
+              <span class="chip">Data handling</span><span class="chip">Automation</span><span class="chip">Web front end</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="wrap">
       <div class="contact-box">
-        <div class="eyebrow" style="margin-bottom:14px">// Get in touch</div>
-        <h2>Let's build something end to end.</h2>
+        <div class="eyebrow" style="margin-bottom:14px">Get in touch</div>
+        <h2>Open to new roles.</h2>
         <p>Open to software developer roles where I can own products from model and API through to the interface, and to keep learning alongside a curious, collaborative team.</p>
         <div class="clist">
           <a href="mailto:andreassonalex01@gmail.com"><span>✉</span><span><span class="lab">Email</span>andreassonalex01@gmail.com</span></a>
